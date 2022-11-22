@@ -1,0 +1,8 @@
+.btn{
+    border: 1px solid white;
+    background-color: coral;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
