@@ -35,32 +35,23 @@ const DeckOfCards = () => {
     cards: [],
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const deckId = await createDeck();
-      const data = await getCards(deckId);
-
-      setDeck({
-        cards: data.cards,
-      });
-    };
-
-    fetchData();
-  }, []);
-
-  const changeDeck = async () =>{
+  const fetchData = async () => {
     const deckId = await createDeck();
     const data = await getCards(deckId);
 
     setDeck({
       cards: data.cards,
     });
-  }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
-    <section>
+    <section style={{textAlign: 'center'}}>
       <DeckList cards={deck.cards} /> 
-      <ChangeDeck changeDeck={changeDeck}/>
+      <ChangeDeck changeDeck={fetchData}/>
     </section>
   );
 };
